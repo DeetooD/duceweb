@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUCE - About Our Creative Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f8ff; /* AliceBlue */
+            color: #333;
+        }
+
+        /* Color Palette */
+        :root {
+            --sky-blue: #87CEEB;
+            --steel-blue: #4682B4;
+            --white: #FFFFFF;
+            --dark-slate-gray: #2F4F4F;
+            --light-coral: #F08080;
+            --alice-blue: #f0f8ff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--steel-blue);
+            text-decoration: none;
+        }
+         .logo img{
+            width: auto;
+            height: 110px;
+        }
+         .logo img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        } 
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--dark-slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .main-nav ul li a:hover, .main-nav ul li a.active {
+            background-color: var(--sky-blue);
+            color: var(--white);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: var(--steel-blue);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        /* General Content Section Styling */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .content-section .container {
+            max-width: 960px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--steel-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        /* About Story Section */
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-story img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-story-content h3 {
+            font-size: 1.8rem;
+            color: var(--dark-slate-gray);
+            margin-bottom: 1rem;
+        }
+
+        .about-story-content p {
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 1.05rem;
+        }
+        
+        /* Mission & Values */
+        .mission-values {
+            background-color: var(--white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .value-item .icon {
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .value-item h4 {
+            font-size: 1.3rem;
+            color: var(--dark-slate-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Meet the Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .team-member-info {
+            padding: 1.5rem;
+        }
+
+        .team-member-info h4 {
+            font-size: 1.2rem;
+            color: var(--dark-slate-gray);
+        }
+
+        .team-member-info span {
+            display: block;
+            color: var(--steel-blue);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        
+        .team-member-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--dark-slate-gray);
+            color: var(--alice-blue);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            margin: 1rem 0;
+        }
+        
+        .footer-links ul li {
+            margin: 0 15px;
+        }
+
+        .footer-links ul li a {
+            color: var(--alice-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--sky-blue);
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--alice-blue);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--sky-blue);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+            }
+
+            .main-nav ul {
+                margin-top: 1rem;
+                padding: 0;
+            }
+
+            .about-story {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links ul {
+                flex-direction: column;
+            }
+
+            .footer-links ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://images2.imgbox.com/b5/64/zFkbjxi6_o.png" alt="DUCE logo"/></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="order.html">Place Order</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About DUCE</h1>
+            <p>The Creative Force Behind Your Vision</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="about-story">
+                <div class="about-story-content">
+                    <h3>From a Spark of an Idea to a Creative Hub</h3>
+                    <p>Dsignd Urban Creative Expressions (DUCE) started in a small back room with a single heat press, a Cricut Maker 3 and a huge passion for design. We saw a world full of blank canvases—t-shirts, walls, and digital screens—and wanted to fill them with art that spoke to people.</p>
+                    <p>What began as a hobby quickly grew into a full-fledged creative studio, driven by our love for collaboration and our commitment to quality. Today, we're a tight-knit team of designers, printers, and creators dedicated to helping individuals and businesses express themselves through unique, high-quality products.</p>
+                </div>
+                <div class="about-story-image">
+                    <img src="images/creative space.jpg" alt="The DUCE creative workspace">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission & Values Section -->
+    <section class="content-section mission-values">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Values</h2>
+            <p class="section-subtitle">These are the principles that guide every project we undertake.</p>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="icon">💡</div>
+                    <h4>Creativity First</h4>
+                    <p>We believe great design is the heart of every project. We push boundaries to deliver innovative and impactful solutions.</p>
+                </div>
+                <div class="value-item">
+                    <div class="icon">🏆</div>
+                    <h4>Uncompromising Quality</h4>
+                    <p>From the finest inks to the most durable materials, we never cut corners. Your project deserves the best, and we deliver it.</p>
+                </div>
+                <div class="value-item">
+                    <div class="icon">🤝</div>
+                    <h4>Collaborative Spirit</h4>
+                    <p>Your vision is our blueprint. We work closely with you at every step to ensure the final product is exactly what you imagined.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Meet the Team</h2>
+            <p class="section-subtitle">The passionate creators who make DUCE special.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://placehold.co/400x400/4682B4/FFFFFF?text=Team+Member+1" alt="Team Member Jane Doe">
+                    <div class="team-member-info">
+                        <h4>Jane Doe</h4>
+                        <span>Lead Designer & Founder</span>
+                        <p>With an eye for detail and a love for bold typography, Jane started DUCE to bring awesome designs to the world.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://placehold.co/400x400/87CEEB/FFFFFF?text=Team+Member+2" alt="Team Member John Smith">
+                    <div class="team-member-info">
+                        <h4>John Smith</h4>
+                        <span>Head of Printing</span>
+                        <p>John is a master of the craft, ensuring every print is perfect, vibrant, and durable. He's the magic behind the machine.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://placehold.co/400x400/F08080/FFFFFF?text=Team+Member+3" alt="Team Member Alex Johnson">
+                    <div class="team-member-info">
+                        <h4>Alex Johnson</h4>
+                        <span>Client Relations</span>
+                        <p>Alex is the friendly voice on the phone, dedicated to making your experience with DUCE smooth and enjoyable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo"><img src="https://images2.imgbox.com/b5/64/zFkbjxi6_o.png" alt="DUCE logo"/></a>
+                 <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <!-- Replace # with your actual social media links -->
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">i</a>
+                    <a href="#" aria-label="Pinterest">p</a>
+                </div>
+                <p class="copyright">&copy; 2024 Dsignd Urban Creative Expressions (DUCE). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer> 
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUCE - Frequently Asked Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f8ff; /* AliceBlue */
+            color: #333;
+        }
+
+        /* Color Palette */
+        :root {
+            --sky-blue: #87CEEB;
+            --steel-blue: #4682B4;
+            --white: #FFFFFF;
+            --dark-slate-gray: #2F4F4F;
+            --light-coral: #F08080;
+            --alice-blue: #f0f8ff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--steel-blue);
+            text-decoration: none;
+        }
+        .logo img{
+            width: auto;
+            height: 110px;
+        }
+         .logo img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }      
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--dark-slate-gray);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .main-nav ul li a:hover, .main-nav ul li a.active {
+            background-color: var(--sky-blue);
+            color: var(--white);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: var(--steel-blue);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-category h2 {
+            font-size: 1.8rem;
+            color: var(--steel-blue);
+            border-bottom: 2px solid var(--sky-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-item summary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1rem;
+            cursor: pointer;
+            list-style: none; /* Hide default marker */
+            position: relative;
+            color: var(--dark-slate-gray);
+        }
+        
+        .faq-item summary::-webkit-details-marker {
+            display: none; /* Hide default marker for Chrome/Safari */
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            position: absolute;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--steel-blue);
+            transition: transform 0.3s;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1rem 1rem 1rem;
+            color: #555;
+            line-height: 1.7;
+            border-top: 1px solid #f0f0f0;
+        }
+         .faq-answer a{
+            color: var(--light-coral);
+        }
+               
+
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--alice-blue);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-slate-gray);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--light-coral);
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e86a6a;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--dark-slate-gray);
+            color: var(--alice-blue);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #87CEEB; /* SkyBlue */
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            margin: 1rem 0;
+        }      
+        .footer-links ul li {
+            margin: 0 15px;
+        }
+        .footer-links ul li a {
+            color: #f0f8ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links ul li a:hover {
+            color: #87CEEB; /* SkyBlue */
+        }        
+        .social-links {
+            margin: 1rem 0;
+        }
+        .social-links a {
+            color: #f0f8ff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #87CEEB; /* SkyBlue */
+        }       
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+            }
+            .main-nav ul {
+                margin-top: 1rem; padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://images2.imgbox.com/b5/64/zFkbjxi6_o.png" alt="DUCE logo"/></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="order.html">Place Order</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Have a question? We've got answers.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <!-- Ordering Questions -->
+            <div class="faq-category">
+                <h2>Ordering</h2>
+                <details class="faq-item">
+                    <summary>What is your minimum order quantity?</summary>
+                    <div class="faq-answer">
+                        <p>You can order as few as one item for our Direct-to-Film (DTF) printing and vinyl decal services! For design services, there are no minimums.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>How long will my order take?</summary>
+                    <div class="faq-answer">
+                        <p>Standard turnaround time for most printing orders is 5-7 business days after you've approved the final proof and payment has been processed. Design projects vary based on complexity, but we will provide a timeline with your quote. Rush services are available for an additional fee.</p>
+                    </div>
+                </details>
+                 <details class="faq-item">
+                    <summary>How do I get a quote?</summary>
+                    <div class="faq-answer">
+                        <p>The best way is to use our <a href="order.html">Place an Order</a> page. Provide as much detail as you can, and we'll get back to you with a detailed quote within 1-2 business days. You can also call or email us directly via our <a href="contact.html">Contact</a> page.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Artwork Questions -->
+            <div class="faq-category">
+                <h2>Artwork & Design</h2>
+                 <details class="faq-item">
+                    <summary>What file formats do you accept for artwork?</summary>
+                    <div class="faq-answer">
+                        <p>We strongly prefer vector files such as .AI, .EPS, or .PDF. These allow for the cleanest prints. We also accept high-resolution raster images like .PNG or .PSD (at least 300 dpi at the desired print size). If you're unsure about your file, send it over and we can check it for you!</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can you help me create a design?</summary>
+                    <div class="faq-answer">
+                        <p>Absolutely! That's what we love to do. Our talented design team can work with you to create a custom design from scratch or refine an existing idea. Just select "Logo & Flyer Design" or mention you need design help when you submit your order request.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Shipping Questions -->
+            <div class="faq-category">
+                <h2>Delivery & Pickup</h2>
+                <details class="faq-item">
+                    <summary>Do you deliver orders?</summary>
+                    <div class="faq-answer">
+                        <p>Yes, there is delivery to select areas. This comes at an added cost and will be calculated and included in your final quote, unless you opt for pickup. We use reliable carriers to ensure your order arrives safely.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I pick up my order from your studio?</summary>
+                    <div class="faq-answer">
+                        <p>We have select pickup locations, so you can select "Local Pickup" during the ordering process. We'll notify you via email as soon as your order is ready to be picked up. This occurs during regular business hours.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>If you couldn't find your answer here, please don't hesitate to reach out to us directly.</p>
+            <a href="contact.html" class="btn">Contact Our Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo"><img src="https://images2.imgbox.com/b5/64/zFkbjxi6_o.png" alt="DUCE logo"/></a>
+                 <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <!-- Replace # with your actual social media links -->
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">i</a>
+                    <a href="#" aria-label="Pinterest">p</a>
+                </div>
+                <p class="copyright">&copy; 2024 Dsignd Urban Creative Expressions (DUCE). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>     
+</body>
+</html>
